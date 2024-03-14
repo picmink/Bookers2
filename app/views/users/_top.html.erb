@@ -1,0 +1,55 @@
+<div class="container">
+  <div clas="row">
+    <div class="mx-auto">
+      
+      <% if book.errors.any? %>
+        <%= book.errors.count %>件のエラーが発生しました
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+      <h2>User info</h2>
+
+          <table class="col-12 mb-4">
+            <tr class="border-bottom">
+              <th><%= image_tag user.get_image , size: "100x100" %></th>
+            </tr>
+            <tr class="border-bottom">
+              <th class="px-2">name</th>
+              <th class="px-5"></th>
+              <th class="px-5"></th>
+              <th class="px-5"><%= user.name %></th>
+            </tr><br/>
+            <tr>
+                <th class="px-2">introduction</th>
+                <th class="px-5"></th>
+                <th class="px-5"></th>
+                <th class="px-5"><%= user.introduction %></th>
+            </tr>
+          </table>
+          
+      <div class="col-12 btn btn-outline-dark btn-block">
+        <%= link_to edit_user_path(current_user),class: "nav-link" do %>
+          <i class="fa-solid fa-user-gear"></i>
+        <% end %>
+      </div>
+      
+      
+      <h2>New book</h2>
+      <%= form_with model: book do |f| %>
+         <div class="label">
+          <%= f.label :title %><br />
+          <%= f.text_field :title ,size:"60x40" %>
+        </div>
+        <div class="label">
+          <%= f.label :opinion %><br />
+          <%= f.text_area :opinion, size:"62x3" %>
+        </div>
+        <%= f.submit'Create Book' ,class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>

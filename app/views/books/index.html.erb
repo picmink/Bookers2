@@ -1,0 +1,42 @@
+<%= render "top", user: @user , book: @book %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h2 class="border-bottom">Books</h2>
+              <div class="border-bottom">
+                  
+                  <table>
+                    <thead>
+                      <tr class="col-12 border-bottom">
+                        <th class="px-5"></th>
+                        <th class="px-5">Title</th>
+                        <th class="px-5"></th>
+                        <th class="px-5">Opinion</th>
+                      </tr>
+                    </thead>
+                  
+                    <% @books.each do |book| %>
+                    <div class="p-2 border-bottom">
+                        <tr>
+                          <td class="p-2">
+                            <%= link_to book_path(book.id) do %>
+                              <%= image_tag book.user.get_image, size: "100x100" %>
+                            <% end %>
+                          </td>
+                          <td class="px-5">
+                            <%= link_to book_path(book.id) do %>
+                              <%= book.title %>
+                            <% end %>
+                          </td>
+                          <td  class="px-3"></td>
+                          <td class="px-5"><%= book.opinion %></td>
+                        </tr><br/>
+                    </div>
+                    <% end %>
+                  </table>
+                
+              </div>
+        </div>
+    </div>
+</div>

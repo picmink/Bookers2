@@ -1,0 +1,29 @@
+<p id="notice"><%= flash[:notice] %></p>
+<%= render "top", user: @user ,book: @book %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h2 class="border-bottom">Books</h2>
+                
+                <table>
+                    <thead>
+                    <tr class="border-bottom">
+                      <th class="px-4"></th>
+                      <th class="px-5">Title</th>
+                      <th class="px-5">Opinion</th>
+                    </tr>
+                    </thead>
+
+                    <% @books.each do |book| %>
+                         <tr>
+                            <td class="p-2"><%= image_tag book.user.get_image, size: "100x100" %></td>
+                            <td class="px-5"><%= book.title %></td>
+                            <td class="px-5"><%= book.opinion %></td>
+                        </tr>
+                    <% end %>
+            
+                </table>
+        </div>
+    </div>
+</div>

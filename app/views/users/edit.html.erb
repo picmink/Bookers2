@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-9 mx-auto">
+            <h1>User info</h1>
+            <%= form_with model: @user, url: user_path(current_user.id), method: :patch do |f| %>
+                <label>image</label><br/>
+                <%= f.file_field :image, accept: "image/*" %><br/>
+                
+                <label class="edit_name">Name</label>
+                <div class="field"><%= f.text_field :name, size:"45" %></div>
+                
+                <label class="edit_comment">Introduction</label>
+                <div class="feild"><%= f.text_field :introduction, size:"45" %></div>
+                
+                <div class="py-2">
+                     <%= f.submit 'Update User', class: 'btn btn-info' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

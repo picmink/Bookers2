@@ -1,0 +1,29 @@
+<%= render "top", user: @user, book: @book %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h2 class="border-bottom">Users</h2>
+            
+                <table>
+                <thead class="border-bottom">
+                    <th class="px-1">image</th>
+                    <th class="px-5"></th>
+                    <th class="px-5">name</th>
+                </thead>
+            
+                <% @users.each do |user| %>
+                
+                    <tr class="border-bottom">
+                      <td class="p-2"><%= image_tag user.get_image, size: "100x100" %></td>
+                      <td class="px-5"></td>
+                      <td class="px-5"><%= user.name %></td>
+                      <td class="px-5"><%= link_to "Show", user_path(user.id) %></td>
+                    </tr>
+                    
+                <% end %>
+              </table>
+        </div>
+    </div>
+</div>
+
